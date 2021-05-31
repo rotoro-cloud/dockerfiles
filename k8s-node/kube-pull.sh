@@ -25,7 +25,7 @@ sleep 2
 
 # pull inner images
 kubeadm config images pull --kubernetes-version=$k8s_version
-docker image pull quay.io/coreos/flannel:v0.12.0-amd64
+docker image pull quay.io/coreos/flannel:v0.14.0-amd64
 
 # stop dockerd (remove the .pid file as otherwise it may prevent
 # dockerd from launching correctly inside the sys container)
