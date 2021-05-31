@@ -81,7 +81,7 @@ COPY daemon.json /etc/docker/
 # bash completion & utils
 RUN apt-get update                                                                    \
     && mkdir -p /etc/bash_completion.d                                                \
-    && apt-get install bash-completion net-tools curl wget netcat vim iproute2 telnet \
+    && apt-get --no-install-recommends -y install bash-completion net-tools curl wget netcat vim iproute2 telnet \
     && rm -rf /var/lib/apt/lists/*                                                    \
     && echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc               \
     && echo "source <(kubectl completion bash)" >> /root/.bashrc                      \
