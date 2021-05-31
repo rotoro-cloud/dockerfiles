@@ -78,12 +78,12 @@ RUN chmod +x /usr/bin/kube-pull.sh && kube-pull.sh $k8s_version && rm /usr/bin/k
 # Docker daemon config.
 COPY daemon.json /etc/docker/
 
-# bash completion
-RUN apt-get update                                                             \
-    && mkdir -p /etc/bash_completion.d                                         \
-    && apt-get install bash-completion                                         \
-    && rm -rf /var/lib/apt/lists/*                                             \
-    && echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc        \
-    && echo "source <(kubectl completion bash)" >> /root/.bashrc               \
-    && echo "source /etc/profile.d/bash_completion.sh" >> /home/admin/.bashrc  \
+# bash completion & utils
+RUN apt-get update                                                                    \
+    && mkdir -p /etc/bash_completion.d                                                \
+    && apt-get install bash-completion net-tools curl wget netcat vim iproute2 telnet \
+    && rm -rf /var/lib/apt/lists/*                                                    \
+    && echo "source /etc/profile.d/bash_completion.sh" >> /root/.bashrc               \
+    && echo "source <(kubectl completion bash)" >> /root/.bashrc                      \
+    && echo "source /etc/profile.d/bash_completion.sh" >> /home/admin/.bashrc         \
     && echo "source <(kubectl completion bash)" >> /home/admin/.bashrc
