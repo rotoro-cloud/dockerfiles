@@ -109,7 +109,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y                
 # see https://packages.cloud.google.com/apt/dists/
 RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add    \
     && apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"        \
-    && apt-get update && apt-get install --no-install-recommends -y kubeadm=1.18.2-00   \
+    && apt-get update && apt-get install --no-install-recommends -y kubeadm   \
     && rm -rf /var/lib/apt/lists/*
 
 # Preload k8s control plane container images into the sys container image.
