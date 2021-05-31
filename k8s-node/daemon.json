@@ -1,3 +1,9 @@
 {
-  "exec-opts": ["native.cgroupdriver=systemd"]
+  "exec-opts": [
+    "native.cgroupdriver=cgroupfs"
+  ],
+  "bip":"172.12.0.1/24",
+  "registry-mirrors": [
+    "http://docker-registry-mirror.rotoro.cloud"
+  ]
 }
