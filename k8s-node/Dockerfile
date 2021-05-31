@@ -40,7 +40,7 @@
 
 FROM nestybox/ubuntu-bionic-systemd:latest
 
-ARG k8s_version=v1.18.2
+ARG k8s_version=v1.20.0
 
 # Install Docker.
 RUN apt-get update && apt-get install --no-install-recommends -y                        \
