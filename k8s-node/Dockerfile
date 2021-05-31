@@ -66,9 +66,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y                
 #
 # Note: we use kubeadm for Ubuntu Xenial because a version for Bionic is not available;
 # see https://packages.cloud.google.com/apt/dists/
-RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add    \
-    && apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"        \
-    && apt-get update && apt-get install --no-install-recommends -y kubeadm             \
+RUN curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add       \
+    && apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"           \
+    && apt-get update && apt-get install --no-install-recommends -y kubeadm=${k8s_version} \
     && rm -rf /var/lib/apt/lists/*
 
 # Preload k8s control plane container images into the sys container image.
